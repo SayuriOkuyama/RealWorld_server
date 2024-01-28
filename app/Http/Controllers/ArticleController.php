@@ -13,14 +13,17 @@ use App\Http\Requests\UpdateApiArticleRequest;
 class ArticleController extends Controller
 {
   /**
-   * Display a listing of the resource.
+   * 記事全件取得（ページネーション対応）
    */
   public function index()
   {
-    $articles = Article::with('tags')->orderBy('updated_at', 'desc')->paginate(20);
+    $articles = Article::with(['tags', 'user'])->orderBy('updated_at', 'desc')->paginate(20);
     return response()->json($articles, 200);
   }
 
+  /**
+   * 個別記事取得
+   */
   public function get(string $id)
   {
     $article = Article::find($id);
@@ -57,7 +60,7 @@ class ArticleController extends Controller
   }
 
   /**
-   * Show the form for creating a new resource.
+   * 新規投稿
    */
   public function create(StoreApiArticleRequest $request)
   {
@@ -95,7 +98,7 @@ class ArticleController extends Controller
 
 
   /**
-   * Update the specified resource in storage.
+   * 記事更新
    */
   public function update(UpdateApiArticleRequest $request, string $id)
   {
@@ -181,7 +184,7 @@ class ArticleController extends Controller
   }
 
   /**
-   * Remove the specified resource from storage.
+   * 記事削除
    */
   public function delete(string $id)
   {

@@ -19,6 +19,10 @@ class Article extends Model
     'user_id'
   ];
 
+  protected $casts = [
+    'updated_at' => 'datetime:F jS',
+  ];
+
   /*
   * 記事に紐づくユーザーを取得
   */
