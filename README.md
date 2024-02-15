@@ -35,7 +35,6 @@ https://apprentice.my-raga-bhakti.com/
               }
           },
 
-  ...
   ```
 
 - POST メソッド：記事の新規投稿
