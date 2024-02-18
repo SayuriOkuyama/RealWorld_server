@@ -4,7 +4,11 @@
 
 ## AWS で Laravel API をデプロイしました。
 
-https://apprentice.my-raga-bhakti.com/
+- フロントエンド
+  https://apprentice-client.my-raga-bhakti.com/
+
+- バックエンド
+  https://apprentice.my-raga-bhakti.com/
 
 掲示板 Web アプリケーションのバックエンド API として、MySQL と通信し、レスポンスを返します。
 
