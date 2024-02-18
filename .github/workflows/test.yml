@@ -23,7 +23,7 @@ jobs:
       - uses: ramsey/composer-install@2.2.0
 
       - name: APP_KEY generate
-        run: touch .env && php artisan key:generate
+        run: touch .env && cp .env.example .env && php artisan key:generate
 
       - name: Run tests with PHPUnit
         run: php artisan test
