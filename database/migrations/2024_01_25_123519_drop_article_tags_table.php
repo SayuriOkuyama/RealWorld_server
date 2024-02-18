@@ -20,8 +20,8 @@ return new class extends Migration
   public function down(): void
   {
     Schema::create('article_tags', function (Blueprint $table) {
-      $table->foreignId('article_id')->constrained('articles')->cascadeOnDelete();;
-      $table->foreignId('tag_id')->constrained('tags')->cascadeOnDelete();;
+      $table->foreignId('article_id')->constrained('articles')->cascadeOnDelete();
+      $table->foreignId('tag_id')->constrained('tags')->cascadeOnDelete();
     });
   }
 };
