@@ -12,7 +12,7 @@ class ExampleTest extends TestCase
    */
   public function testTheApplicationReturnsASuccessfulResponse(): void
   {
-    $response = $this->get('/');
+    $response = $this->get('https://apprentice.my-raga-bhakti.com/');
 
     $response->assertStatus(200);
   }
