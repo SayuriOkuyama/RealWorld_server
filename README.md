@@ -10,6 +10,8 @@
 - バックエンド
   https://apprentice.my-raga-bhakti.com/
 
+![Conduit_2 drawio](https://github.com/SayuriOkuyama/RealWorld_server/assets/134520812/4f99e573-a206-4be0-aedb-25f8df9934f8)
+
 掲示板 Web アプリケーションのバックエンド API として、MySQL と通信し、レスポンスを返します。
 
 - GET メソッド：投稿記事の全件取得
