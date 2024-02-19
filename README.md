@@ -10,7 +10,8 @@
 - バックエンド
   https://apprentice.my-raga-bhakti.com/
 
-![Conduit_2 drawio](https://github.com/SayuriOkuyama/RealWorld_server/assets/134520812/4f99e573-a206-4be0-aedb-25f8df9934f8)
+![Conduit2 drawio](https://github.com/SayuriOkuyama/RealWorld_server/assets/134520812/935c6172-488f-40b4-9be3-16a0db81bbe3)
+
 
 掲示板 Web アプリケーションのバックエンド API として、MySQL と通信し、レスポンスを返します。
 
