@@ -1,0 +1,43 @@
+name: Deploy to Amazon EC2
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+      REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+      REMOTE_USER: ${{ secrets.REMOTE_USER }}
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up PHP
+      uses: shivammathur/setup-php@v2
+
+    - name: Install dependencies
+      run: composer install --prefer-dist --no-progress --no-suggest
+
+    - name: Deploy to Amazon EC2
+      uses: easingthemes/ssh-deploy@v5.0.2
+      with:
+        SOURCE: '.'
+        TARGET: '/var/www/html/'
+        EXCLUDE: '/.github/,/vendor/,/.env'
+
+    - name: Deploy and Start PHP Built-in Server
+      run: |
+        echo "$SSH_PRIVATE_KEY" > private_key
+        chmod 600 private_key
+        ssh -o StrictHostKeyChecking=no -i private_key $REMOTE_USER@$REMOTE_HOST << 'EOF'
+					cd /var/www/html/
+					git switch master
+					git pull origin master
+					sudo chmod 777 storage -R
+					sudo chmod 777 bootstrap/cache -R
+					composer install
+					php artisan migrate --force
+        EOF
