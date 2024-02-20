@@ -33,7 +33,7 @@ jobs:
           echo "$SSH_PRIVATE_KEY" > private_key
           chmod 600 private_key
           ssh -o StrictHostKeyChecking=no -i private_key $REMOTE_USER@$REMOTE_HOST << 'EOF'
-            cd /var/www/html/
+            cd /var/www/html/RealWorld
             composer install
             php artisan migrate --force
           EOF
