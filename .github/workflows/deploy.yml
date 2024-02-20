@@ -27,9 +27,8 @@ jobs:
           SOURCE: '.'
           TARGET: '/var/www/html/'
           EXCLUDE: '/.github/,/vendor/,/.env'
-          script: 'cd /var/www/html && git switch master && '
 
-      - name: Deploy to Server
+      - name: Install dependencies on server
         run: |
           echo "$SSH_PRIVATE_KEY" > private_key
           chmod 600 private_key
