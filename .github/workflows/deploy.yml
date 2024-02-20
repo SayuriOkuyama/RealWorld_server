@@ -25,7 +25,7 @@ jobs:
         uses: easingthemes/ssh-deploy@v5.0.2
         with:
           SOURCE: '.'
-          TARGET: '/var/www/html/'
+          TARGET: '/var/www/html/RealWorld'
           EXCLUDE: '/.github/,/vendor/,/.env'
 
       - name: Install dependencies on server
