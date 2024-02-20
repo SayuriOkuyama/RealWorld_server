@@ -27,17 +27,14 @@ jobs:
           SOURCE: '.'
           TARGET: '/var/www/html/'
           EXCLUDE: '/.github/,/vendor/,/.env'
+          script: 'cd /var/www/html && git switch master && '
 
-      - name: Deploy
+      - name: Deploy to Server
         run: |
           echo "$SSH_PRIVATE_KEY" > private_key
           chmod 600 private_key
           ssh -o StrictHostKeyChecking=no -i private_key $REMOTE_USER@$REMOTE_HOST << 'EOF'
             cd /var/www/html/
-            git switch master
-            git pull origin master
-            sudo chmod 777 storage -R
-            sudo chmod 777 bootstrap/cache -R
             composer install
             php artisan migrate --force
           EOF
