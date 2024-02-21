@@ -19,7 +19,7 @@ return [
 
   'allowed_methods' => ['*'],
 
-  'allowed_origins' => [env('https://apprentice-client.my-raga-bhakti.com', 'http://localhost:3000')],
+  'allowed_origins' => [env('FRONTEND_URL'), 'http://localhost:3000'],
 
   'allowed_origins_patterns' => [],
 
